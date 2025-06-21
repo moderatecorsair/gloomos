@@ -9,21 +9,21 @@ modules:
     files:
       - source: system
         destination: /
-  - type: rpm-ostree
+  - type: dnf
     repos:
       cleanup: true
       nonfree: rpmfusion
       copr:
        - atim/starship
-      install:
-        skip-unavailable: true
-        packages:
-        - helix
-        - starship
-      remove:
-        packages:
-        - firefox
-        - firefox-langpacks
+    install:
+      skip-unavailable: true
+      packages:
+      - helix
+      - starship
+    remove:
+      packages:
+      - firefox
+      - firefox-langpacks
   - type: default-flatpaks
     notify: true
     system: {}
